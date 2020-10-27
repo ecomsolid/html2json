@@ -96,14 +96,19 @@
           node: 'text',
           text: text,
         };
-        if (bufArray.length === 0) {
-          results.child.push(node);
-        } else {
-          var parent = bufArray[0];
-          if (parent.child === undefined) {
-            parent.child = [];
+        if (text) {
+          let newText = text.trim()
+          if (newText != "\n") {
+            if (bufArray.length === 0) {
+              results.child.push(node);
+            } else {
+              var parent = bufArray[0];
+              if (parent.child === undefined) {
+                parent.child = [];
+              }
+              parent.child.push(node);
+            }
           }
-          parent.child.push(node);
         }
       },
       comment: function(text) {
