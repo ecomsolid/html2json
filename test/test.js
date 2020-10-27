@@ -418,4 +418,27 @@ describe('html2json', function() {
     assert.deepEqual(json, html2json(html));
     assert.deepEqual(html, json2html(json));
   });
+
+  it('should parse text empty', function() {
+    var json = {
+      node: 'root',
+      child: [
+        {
+          child: [
+            {
+              node: 'text',
+              text: 'Button'
+            }
+          ],
+          node: 'element',
+          tag: 'button'
+        }
+      ]
+    };
+    var html = `
+      <button>Button</button>
+    `;
+
+    assert.deepEqual(json, html2json(html));
+  });
 });

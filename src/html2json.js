@@ -98,7 +98,7 @@
         };
         if (text) {
           let newText = text.trim()
-          if (newText != "\n") {
+          if (newText != "") {
             if (bufArray.length === 0) {
               results.child.push(node);
             } else {
